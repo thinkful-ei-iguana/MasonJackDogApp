@@ -1,19 +1,20 @@
 
 
 function getDogImage(number) {
-  if (typeof number === "number") {
-    fetch(`https://dog.ceo/api/breeds/image/random/${number}`)
-      .then(response => response.json())
-      .then(responseJson => 
-        displayResults(responseJson))
-      .catch(error => alert('Something went wrong. Try again later.'));
-  } else {
+  
+  if(typeof number !== "number" || number === 0) {
     fetch('https://dog.ceo/api/breeds/image/random/3')
       .then(response => response.json())
       .then(responseJson => 
         displayResults(responseJson))
       .catch(error => alert('Something went wrong. Try again later.'));
-  }
+  } else {
+    fetch(`https://dog.ceo/api/breeds/image/random/${number}`)
+      .then(response => response.json())
+      .then(responseJson => 
+        displayResults(responseJson))
+      .catch(error => alert('Something went wrong. Try again later.'));
+  } 
 }
 
 function displayResults(responseJson) {
@@ -36,7 +37,7 @@ function watchForm() {
   $('form').submit(event => {
     event.preventDefault();
     let dogNumber = Number($(event.currentTarget).find('#dogNumber').val());
-    console.log(dogNumber);
+    console.log("dog number is " + dogNumber);
     getDogImage(dogNumber);
   });
 }
