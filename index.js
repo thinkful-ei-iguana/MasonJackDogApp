@@ -17,12 +17,17 @@ function getDogImage(number) {
 }
 
 function displayResults(responseJson) {
-  console.log(responseJson);
+  console.log( responseJson);
   //replace the existing image with the new one
-  responseJson.forEach()
-  $('.results-img').replaceWith(
-    `<img src="${responseJson.message}" class="results-img">`
-  );
+  let finalString = '';
+  console.log(responseJson.message.length);
+  for(let i = 0; i < responseJson.message.length; i++){
+    console.log('test');
+    //console.log(responseJson.message[i]);
+    finalString += `<img src="${responseJson.message[i]}" class="results-img">`;
+  }
+  console.log(finalString);
+  $('.dogTown').html(finalString);
   //display the results section
   $('.results').removeClass('hidden');
 }
