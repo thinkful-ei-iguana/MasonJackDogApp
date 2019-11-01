@@ -1,7 +1,7 @@
 
 
 function getDogImage(number) {
-  if (typeof number === Number) {
+  if (typeof number === "number") {
     fetch(`https://dog.ceo/api/breeds/image/random/${number}`)
       .then(response => response.json())
       .then(responseJson => 
