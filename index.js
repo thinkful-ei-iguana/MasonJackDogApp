@@ -2,7 +2,7 @@
 
 function getDogImage(number) {
   
-  if(typeof number !== "number" || number === 0) {
+  if(typeof number !== 'Number' || number === 0) {
     fetch('https://dog.ceo/api/breeds/image/random/3')
       .then(response => response.json())
       .then(responseJson => 
